@@ -1,0 +1,21 @@
+{%extends 'base.html'%}
+{%block conteudo%}
+    <h2 style="text-align:center ;">Teste de Filmes</h2>
+    <hr style="color:Orange ; height: 30%;">
+    <div class="row">
+        
+        {%for filme in filmes%}
+        <div class="col-md-4">
+            <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src="http://image.tmdb.org/t/p/w500{{filme.backdrop_path}}" alt="Card image cap">
+                <div class="card-body">
+                <h5 class="card-title">{{filme.title}}</h5>
+                <p class="card-text">{{filme.overview}}</p>
+                <h4>Nota média <span class="badge bg-secondary" style="color:rgb(66, 2, 241);">{{filme.vote_average}}</span></h4>
+                </div>
+            </div>
+        </div>
+        {%endfor%}
+    </div>
+
+{% endblock conteudo %}

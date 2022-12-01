@@ -1,0 +1,30 @@
+{%extends 'base.html'%}
+{%block conteudo%}
+    <h1 style="text-align:center ;">DIARIO CLASSE</h1>
+    {%for registro in registros%}
+    <ul class="list-group">
+        <li class="list-group-item d-flex justify-content-between align-items-center" style="color:blue ; display: block;" >
+            <details>
+                <summary>{{registro.aluno}}</summary>
+                <p id="palavra">{{registro.nota}} </p>
+            </details>
+        </li>
+    </ul>
+    {% endfor %}
+
+    <form action="{{url_for('sobre')}}" method="POST">
+        <div class="form-group">
+
+            <label for="">Aluno</label>
+            <input type="text" name="aluno" required placeholder="Insira o nome do aluno" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="">Nota</label>
+            <input type="text" name="nota" required placeholder="insira a nota do aluno" class="form-control">
+        </div>
+        <button class="btn btn-success">Adicionar</button>
+    </form>
+
+
+{% endblock conteudo %}
+        

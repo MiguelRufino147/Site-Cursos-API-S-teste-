@@ -1,0 +1,41 @@
+{%extends 'base.html'%}
+{%block conteudo%}
+<h2 style="text-align:center;">Lista de cursos</h2>
+<hr>
+<a href="{{url_for('add_cursos')}}" class= "btn btn-primary btn-sm">Adicionar Curso</a>
+<br>
+<br>
+<table class="table table-dark table-striped table-hover">
+    <thead>
+        <tr>
+          <th scope="col">Id</th>
+          <th scope="col">Nome</th>
+          <th scope="col">Descrição</th>
+          <th scope="col">Carga horária</th>
+          <th scope="col">Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+    {%for curso in cursos%} 
+        <tr>
+            <td>{{curso.id}}</td>
+
+            <td>{{curso.nome}}</td>
+
+            <td>{{curso.descricao}}</td>
+
+            <td>{{curso.ch}}</td>
+
+            <td>
+                <a href="{{curso.id}}/atualiza_curso" class="btn btn-primary btn-xs">Editar</a>
+            
+            
+                <a href="{{curso.id}}/excluir_curso" onclick="return confirm('Deseja realmente excluir esse curso?')" class= "btn btn-outline-danger">EXCLUIR CURSO</a>
+            </td>
+        </tr>
+    {%endfor%}
+        
+    </tbody>
+</table>
+{%endblock conteudo%}
